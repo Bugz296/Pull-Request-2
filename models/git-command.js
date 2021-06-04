@@ -29,6 +29,8 @@ class GitCommand {
         if(modified_files[path_file]){
             this.staging.push(modified_files[path_file]);
             delete modified_files[path_file];
+        else if(path_file == "*"){
+            delete modified_files[path_file];
         }else if(path_file == "."){
             delete this.working_directory.new_changes;
             delete modified_files[path_file];
